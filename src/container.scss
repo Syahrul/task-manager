@@ -1,10 +1,10 @@
 header {
-  background-color: #5C99FF;
+  background-color: var(--primary-color);
   padding: 20px;
 }
 
 main {
-  background-color: #DDF9F1;
+  background-color: var(--secondary-color);
   padding: 20px;
 }
 
@@ -19,5 +19,5 @@ p {
 }
 
 .sub-intro {
-  color: #eaeaea;
+  color: var(--intro-text);
 }
