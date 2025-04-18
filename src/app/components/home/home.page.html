@@ -1,0 +1,14 @@
+<ion-content [fullscreen]="true" fixed-slot-placement="before">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/create-task']">
+      <ion-icon name="add-sharp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <header>
+    <p class="sub-intro">{{ date | dateFormat: "MMMM dd, yyy" }}</p>
+    <p class="intro">Good day, Anon!</p>
+  </header>
+  <main>
+    <app-api-tasks></app-api-tasks>
+  </main>
+</ion-content>

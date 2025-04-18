@@ -1,3 +1,8 @@
+@use './theme/ionic_override.scss' as *;
+@use './theme/fonts.scss' as *;
+@use './theme/container.scss' as *;
+@use './theme/page.scss' as *;
+
 /*
  * App Global CSS
  * ----------------------------------------------------------------------------
@@ -35,3 +40,16 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+:root {
+  --ion-font-family: 'Winky Rough', sans-serif;
+  --primary-color: #5C99FF;
+  --primary-color-activated: #5086E5;
+  --secondary-color: #DDF9F1;
+  --tertiary-color: #707A94;
+  --intro-text: #eaeaea;
+  --calendar-background: #38B963;
+  --header-color: #3862CB;
+  --header-color-alternative: #2CBE5C;
+  --text-color: #313939;
+}

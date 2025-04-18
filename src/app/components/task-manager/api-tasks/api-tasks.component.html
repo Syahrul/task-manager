@@ -1,0 +1,19 @@
+<h1 class="ion-text-uppercase">Online API tasks</h1>
+
+@if (loading) {
+  <ion-spinner name="lines-sharp"></ion-spinner>
+} @else {
+  <div class="ongoing-tasks-container">
+    <ul class="task-card">
+      @for (task of tasks; track task.id) {
+        <li>
+          <div class="task-details-container">
+            <div class="task-details">
+              <h2 class="task-title">{{ task.todo }}</h2>
+            </div>
+          </div>
+        </li>
+      }
+    </ul>
+  </div>
+}
