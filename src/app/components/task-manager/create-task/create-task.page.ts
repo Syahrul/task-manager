@@ -23,6 +23,7 @@ import {
   IonText,
 } from '@ionic/angular/standalone';
 import { TaskManagerService } from 'src/app/services/task-manager.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-task',
@@ -54,7 +55,10 @@ export class CreateTaskPage implements OnInit {
   addNewTaskForm!: FormGroup; // marked ! as this will be initialized in ngOnInit to avoid undefined error in typescript
   addnewTaskFormSubmitted = false;
 
-  constructor(private taskManagerService: TaskManagerService) {
+  constructor(
+    private taskManagerService: TaskManagerService,
+    private router: Router,
+  ) {
     // correctly set the date to the current date in local format
     const now = new Date();
     // function to pad numbers with leading zeros for formatting
@@ -102,6 +106,9 @@ export class CreateTaskPage implements OnInit {
         title: '',
         description: '',
       });
+
+      // redirect to the task list page and make sure user cannot go back to this page
+      this.router.navigate(['/tabs/tab2'], { replaceUrl: true });
     }
   }
 }

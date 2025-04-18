@@ -1,0 +1,10 @@
+<ion-content [fullscreen]="true" fixed-slot-placement="before">
+  <header>
+    <p class="intro ion-text-uppercase">{{ date | dateFormat: "EEEE" }}</p>
+    <p class="sub-intro">{{ date | dateFormat: "MMMM dd, yyy" }}</p>
+  </header>
+  <main>
+    <app-ongoing-tasks (taskUpdated)="onTaskUpdated()"></app-ongoing-tasks>
+    <app-finish-tasks></app-finish-tasks>
+  </main>
+</ion-content>

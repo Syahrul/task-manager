@@ -27,11 +27,14 @@ export class TaskManagerService {
     this.saveTasks(tasks);
   }
 
-  // Update existing task
-  updateTask(updatedTask: Task): void {
-    const tasks = this.getTasks().map((task) =>
-      task.id === updatedTask.id ? updatedTask : task,
-    );
+  // Update completed status of a task
+  updateTaskStatus(taskId: number, completed: boolean): void {
+    const tasks = this.getTasks().map((task) => {
+      if (task.id === taskId) {
+        return { ...task, completed };
+      }
+      return task;
+    });
     this.saveTasks(tasks);
   }
 
@@ -39,10 +42,5 @@ export class TaskManagerService {
   deleteTask(taskId: number): void {
     const tasks = this.getTasks().filter((task) => task.id !== taskId);
     this.saveTasks(tasks);
-  }
-
-  // Get single task by ID
-  getTaskById(id: number): Task | undefined {
-    return this.getTasks().find((task) => task.id === id);
   }
 }
