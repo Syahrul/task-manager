@@ -1,0 +1,43 @@
+<h1 class="ion-text-uppercase">Ongoing tasks</h1>
+<div class="ongoing-tasks-container">
+  @if (hasIncompleteTasks) {
+    <ul class="task-card">
+      @for (task of tasks; track task.id) {
+        @if (!task.completed) {
+          <li>
+            <div class="task-details-container">
+              <div class="task-details">
+                <h2 class="task-title">{{ task.title }}</h2>
+                <p class="task-date">
+                  {{ task.date | dateFormat: "MMMM dd, yyy" }}
+                </p>
+                <p class="task-description">{{ task.description }}</p>
+              </div>
+              <div class="task-actions">
+                <ion-button
+                  class="ion-text-uppercase"
+                  fill="clear"
+                  color="danger"
+                  (click)="deleteTask(task.id)">
+                  <ion-icon name="trash-bin-outline"></ion-icon>
+                </ion-button>
+                <ion-button
+                  class="ion-text-uppercase"
+                  fill="clear"
+                  color="success"
+                  (click)="completeTask(task.id)">
+                  <ion-icon name="checkmark-done-outline"></ion-icon>
+                </ion-button>
+              </div>
+            </div>
+          </li>
+        }
+      }
+    </ul>
+  } @else {
+    <p class="no-tasks">
+      No ongoing tasks yet! You can create one by clicking the
+      <span class="add-symbol">+</span> symbol on the home screen
+    </p>
+  }
+</div>

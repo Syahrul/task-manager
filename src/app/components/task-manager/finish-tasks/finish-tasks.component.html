@@ -1,0 +1,24 @@
+<h1 class="ion-text-uppercase">Finish tasks</h1>
+<div class="finish-tasks-container">
+  @if (hasCompleteTasks) {
+    <ul class="task-card">
+      @for (task of tasks; track task.id) {
+        @if (task.completed) {
+          <li>
+            <div class="task-details-container">
+              <div class="task-details">
+                <h2 class="task-title">{{ task.title }}</h2>
+                <p class="task-date">
+                  {{ task.date | dateFormat: "MMMM dd, yyy" }}
+                </p>
+                <p class="task-description">{{ task.description }}</p>
+              </div>
+            </div>
+          </li>
+        }
+      }
+    </ul>
+  } @else {
+    <p class="no-tasks">No finish tasks yet!</p>
+  }
+</div>

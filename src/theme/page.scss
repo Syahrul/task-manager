@@ -1,0 +1,16 @@
+ion-content::part(background) {
+  background-color: var(--secondary-color);
+}
+
+ion-header ion-toolbar {
+  --background: var(--primary-color);
+  --color: white;
+}
+
+ion-header ion-back-button {
+  --color: white;
+}
+
+.page-container {
+  padding: 20px;
+}

@@ -1,0 +1,62 @@
+<ion-header translucent="false">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Create New Task</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <section class="page-container">
+    <form (ngSubmit)="addNewTask()" [formGroup]="addNewTaskForm">
+      <ion-datetime
+        [value]="today"
+        [min]="today"
+        class="ion-margin-bottom ion-text-center"
+        hourCycle="h12"
+        formControlName="date"></ion-datetime>
+
+      <ion-list>
+        @if (
+          addNewTaskForm.get("title")?.value === "" &&
+          this.addnewTaskFormSubmitted
+        ) {
+          <ion-text color="danger" class="ion-padding-start">
+            Title is required
+          </ion-text>
+        }
+
+        <ion-item>
+          <ion-input
+            label
+            labelPlacement="stacked"
+            placeholder="Title"
+            autocorrect="off"
+            formControlName="title"></ion-input>
+        </ion-item>
+        @if (
+          addNewTaskForm.get("description")?.value === "" &&
+          this.addnewTaskFormSubmitted
+        ) {
+          <ion-text color="danger" class="ion-padding-start">
+            Description is required
+          </ion-text>
+        }
+        <ion-item>
+          <ion-textarea
+            placeholder="Description"
+            [autoGrow]="true"
+            formControlName="description">
+          </ion-textarea>
+        </ion-item>
+      </ion-list>
+      <ion-button
+        expand="block"
+        class="ion-margin-top ion-margin-bottom ion-text-uppercase"
+        type="submit"
+        >Create</ion-button
+      >
+    </form>
+  </section>
+</ion-content>

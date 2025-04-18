@@ -1,5 +1,7 @@
-@use './fonts.scss' as *;
-@use './container.scss' as *;
+@use './theme/ionic_override.scss' as *;
+@use './theme/fonts.scss' as *;
+@use './theme/container.scss' as *;
+@use './theme/page.scss' as *;
 
 /*
  * App Global CSS
@@ -46,4 +48,8 @@
   --secondary-color: #DDF9F1;
   --tertiary-color: #707A94;
   --intro-text: #eaeaea;
+  --calendar-background: #38B963;
+  --header-color: #3862CB;
+  --header-color-alternative: #2CBE5C;
+  --text-color: #313939;
 }
